@@ -1,0 +1,21 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var nsString = "http://www.w3.org/2000/svg";
+			var svgElement = document.createElementNS(nsString, "svg");
+			svgElement.width = 400;
+			svgElement.height = 400;
+			document.getElementsByTagName("body")[0].appendChild(svgElement); 
+			var ns
+			 
+			var rectElement = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+			rectElement.setAttribute("fill", "#ff0000");
+			rectElement.setAttribute("width", "200px");
+			rectElement.setAttribute("height", "200px");
+			 
+			svgElement.appendChild(rectElement);
+		</script>
+	</body>
+</html>
