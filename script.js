@@ -23,11 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       group: function () {
         var element = createElement('g');
+        return element;
       },
-      text: function () {
+      text: function (text) {
         var element = createElement('text');
         element.setAttribute('x', '10');
         element.setAttribute('y', '10');
+        element.textContent = text;  
+        return element;
       },
       textRectangle: function (text) {
         var rectangle = create.rectangle();
@@ -35,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var text = create.text(text);
         group.appendChild(rectangle);
         group.appendChild(text);
+        return group;
       }
     };
     function createElement (type) {
@@ -43,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     return {
       createNode: function (type) {
-        var args = arguments.slice(1);
-        return create[type].apply(this, arguments);
+        var args = [].slice.call(arguments, 1);
+        return create[type].apply(this, args);
       },
       appendNode: function (node) {
         svgElement.appendChild(node);
